@@ -35,7 +35,7 @@ def load_config(conf_file, model_path):
             cfg_dict["wandb"]["run_name"] = f"nejumi eval {model_path}"
         # if the model path is actually an HF name, use that as the ID
         if not os.path.exists(model_path):
-            cfg_dict["mtbench"]["model_id"] = model_path
+            cfg_dict["mtbench"]["model_id"] = model_path.replace("/", "--")
 
     else:
         # Provide default settings in case config.yaml does not exist
